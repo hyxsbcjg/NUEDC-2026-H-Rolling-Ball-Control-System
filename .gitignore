@@ -1,0 +1,46 @@
+Debug/
+Release/
+build/
+out/
+.ads/
+
+# Compiler and linker outputs
+*.o
+*.obj
+*.elf
+*.ELF
+*.hex
+*.HEX
+*.map
+*.Map
+*.bin
+*.log
+
+# Temporary and backup files
+temp/
+tmp/
+backup/
+backups/
+*.tmp
+*.temp
+*.bak
+*.backup
+*.orig
+*~
+
+# Python caches
+__pycache__/
+*.py[cod]
+
+# Private IDE/editor caches
+.cache/
+.idea/
+.vscode/
+.metadata/
+.history/
+
+# Keep the shared ADS project metadata and prebuilt device configuration:
+#   tc264/.project
+#   tc264/.cproject
+#   tc264/.settings/
+#   tc264/libraries/zf_device/zf_device_config.a
