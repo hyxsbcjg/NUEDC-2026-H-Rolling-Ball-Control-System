@@ -39,6 +39,19 @@ __pycache__/
 .metadata/
 .history/
 
+# Android local state, build outputs, and signing material
+.gradle/
+**/.kotlin/
+local.properties
+*.iml
+*.apk
+*.aab
+.cxx/
+captures/
+externalNativeBuild/
+*.keystore
+*.jks
+
 # Keep the shared ADS project metadata and prebuilt device configuration:
 #   tc264/.project
 #   tc264/.cproject

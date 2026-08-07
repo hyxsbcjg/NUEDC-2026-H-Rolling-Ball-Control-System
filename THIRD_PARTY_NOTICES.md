@@ -20,6 +20,22 @@
 
 发布或部署时，请同时查阅所用 CanMV 固件包内的许可证和第三方声明。若替换固件版本，应重新确认 API 兼容性和许可条件。
 
+## Android 与 LibVLC
+
+`android/` 是 Android Gradle 工程，依赖 Android SDK、Android Gradle Plugin、Gradle、Kotlin 和 JUnit。这些工具与组件的版权及许可证归各自权利人所有。
+
+Android 客户端使用 `org.videolan.android:libvlc-all:3.7.5`。VideoLAN 以 GNU Lesser General Public License（LGPL）发布 libVLC 和 libvlcjni；其原生运行时还可能包含采用其他许可证的编解码器和平台组件。本仓库根许可证不替代这些依赖的许可证、源码提供或重新链接义务。
+
+版本、上游源码和许可说明见 [android/THIRD_PARTY_NOTICES.md](android/THIRD_PARTY_NOTICES.md)。
+
+## GUST 字体许可证
+
+Android 界面署名中的 `fuuu1688` 使用 Latin Modern Roman 10 Italic 字体。该字体来自 CTAN Latin Modern 包，按 GUST Font License 1.0 提供。
+
+- 字体文件：`android/app/src/main/res/font/lmroman10_italic.otf`
+- 完整许可证：[GUST_FONT_LICENSE.txt](android/app/src/main/assets/licenses/GUST_FONT_LICENSE.txt)
+- Android 第三方声明：[android/THIRD_PARTY_NOTICES.md](android/THIRD_PARTY_NOTICES.md)
+
 ## 保留原始声明
 
 不要删除或改写第三方文件已有的版权头、许可证文本、免责条款、作者信息或来源标识。若修改第三方文件，应按其许可证要求清楚标注修改内容与日期。
