@@ -10,6 +10,15 @@ stream. Risks include sharing the hotspot password, exposing the stream without
 authentication or encryption, and allowing other devices on the local network
 to connect.
 
+The WPA2 hotspot protects association to the local Wi-Fi network, but it does
+not add end-to-end authentication or encryption to RTSP. The Android manifest
+allows cleartext traffic because the configured `rtsp://` stream is plaintext.
+
+`WIFI_SSID_HINT` is display text only. The Android app does not authenticate or
+verify the SSID; it accepts a Wi-Fi network when the configured K230 host and
+RTSP port are reachable, then binds the app process to that network. A device
+that can impersonate that endpoint may therefore supply the stream.
+
 Use the current baseline only in a controlled test area. Before deployment:
 
 1. Set a private `AP_SSID` and unique `AP_PASSWORD` in
@@ -17,7 +26,8 @@ Use the current baseline only in a controlled test area. Before deployment:
 2. Keep the hotspot password private and rotate it if it is shared.
 3. Restrict physical radio range or isolate the test network.
 4. Add an authenticated gateway if unauthorized viewing matters.
-5. Rebuild and repeat the complete delayed-client, reconnect, and denial-of-
+5. Treat Debug Preview APKs as test artifacts, not production-signed releases.
+6. Rebuild and repeat the complete delayed-client, reconnect, and denial-of-
    service tests.
 
 The Android app never stores the hotspot password. The user connects through
