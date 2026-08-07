@@ -1,13 +1,14 @@
 # 2026 电赛 H 题滚球控制系统
 
-本仓库保存一套滚球控制系统的 TC264 控制端与 K230 视觉端源文件。仓库不包含官方题面；使用者应自行从官方渠道获取比赛要求。
+本仓库保存一套滚球控制系统的 TC264 控制端、K230 视觉端与 Android 图传客户端源文件。仓库不包含官方题面；使用者应自行从官方渠道获取比赛要求。
 
 ## 仓库结构
 
 ~~~text
 .
 ├── tc264/  # TC264D 控制、菜单、通信与步进执行代码
-└── k230/   # K230 CanMV 视觉识别、LCD、触摸与 UART 代码
+├── k230/   # K230 CanMV 视觉识别、LCD、触摸、UART 与 RTSP 代码
+└── android/ # K230 图传录像 Android 客户端
 ~~~
 
 ## 开发环境
@@ -17,6 +18,11 @@
 - TC264 工具链：AURIX Development Studio（ADS）中的 TASKING 工具链
 - 视觉端：K230
 - K230 固件：CanMV v1.8-0-gc2d1f5c
+- Android 应用：K230 图传录像
+- Android 包名：`com.k230.camera`
+- Android 版本：1.0.2（`versionCode = 3`）
+- Android 系统要求：Android 10 或更高版本（`minSdk = 29`）
+- 播放组件：LibVLC Android 3.7.5
 
 版本差异可能影响外设 API、工程配置和编译结果。请使用上述版本复现，再单独评估升级。
 
@@ -61,6 +67,28 @@ AP_PASSWORD = "你的 AP 密码"
 
 仓库不提供可用的实际 Wi-Fi 凭据。请勿把个人或现场凭据提交到公开仓库。
 
+## Android 图传与录像
+
+Android 客户端名为“K230 图传录像”。手机先通过系统 Wi-Fi 设置连接 K230 热点，应用再播放 `AppConfig.kt` 中配置的 RTSP 地址。RTSP 流量为明文且未加密，只应在受控网络内使用；应用不读取或保存热点密码。
+
+客户端使用 LibVLC Android 3.7.5，支持视频预览、开始/停止录像，以及未完成录像发布事务的恢复检查。录像调用被接受不等于文件已经安全保存；应在系统相册中检查最终文件。
+
+基本使用步骤：
+
+1. 在 K230 端配置自己的 AP 名称和密码，并启用 RTSP。
+2. 用 Android 系统 Wi-Fi 设置连接该热点；不要把真实密码写入仓库。
+3. 打开“K230 图传录像”，等待预览正常。
+4. 按需开始录像，结束时执行“停止并保存”。
+5. 若应用提示恢复检查，先按 Android 文档核对事务与录像文件。
+
+Android 项目说明与安全边界：
+
+- [android/README.md](android/README.md)
+- [SECURITY.md](android/SECURITY.md)
+- [Android THIRD_PARTY_NOTICES.md](android/THIRD_PARTY_NOTICES.md)
+
+应用署名：`bilibili@fuuu1688`。
+
 ## K230 CanMV 部署
 
 1. 给 K230 烧录 CanMV v1.8-0-gc2d1f5c，并确认串口、LCD、触摸和摄像头硬件与脚本匹配。
@@ -88,10 +116,11 @@ AP_PASSWORD = "你的 AP 密码"
 - 已测得 UART1、UART2、UART3 的实际波形；
 - 已验证步进驱动 ACK 或到位状态——该链路本身不提供这两类反馈；
 - 已完成整机、赛场环境或正式比赛验证；
+- 已在本次发布中完成 Android 手机与 K230 的整机预览、录像或恢复实测；
 - 已取得任何特定 FPS 或实时性能保证。
 
 请在目标硬件上分别验证视觉输出、完整控制周期、通信波形、机械限位和异常停机。
 
 ## 许可证
 
-本仓库原创部分按 [GNU GPL v3 或更高版本](LICENSE)（SPDX：`GPL-3.0-or-later`）发布。逐飞库、Infineon iLLD 和 CanMV 相关依赖保留各自的版权及许可条款，详见 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)。
+本仓库原创部分按 [GNU GPL v3 或更高版本](LICENSE)（SPDX：`GPL-3.0-or-later`）发布。逐飞库、Infineon iLLD、CanMV、Android 和 LibVLC 相关依赖保留各自的版权及许可条款，详见 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)。
