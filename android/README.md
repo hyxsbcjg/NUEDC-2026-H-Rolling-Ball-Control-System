@@ -18,11 +18,11 @@
 
 ## 下载与安装
 
-Release tag：[`android-v1.0.2`](https://github.com/hyxsbcjg/NUEDC-2026-H-Ball-Control/releases/tag/android-v1.0.2)。这些 APK 是 **Debug Preview**，使用调试签名，不是正式发布签名：
+Release tag：[`android-v1.0.2`](https://github.com/hyxsbcjg/NUEDC-2026-H-Rolling-Ball-Control-System/releases/tag/android-v1.0.2)。这些 APK 是 **Debug Preview**，使用调试签名，不是正式发布签名：
 
-- [`K230Camera-v1.0.2-arm64-v8a-debug.apk`](https://github.com/hyxsbcjg/NUEDC-2026-H-Ball-Control/releases/download/android-v1.0.2/K230Camera-v1.0.2-arm64-v8a-debug.apk)：推荐多数现代 Android 手机
-- [`K230Camera-v1.0.2-universal-debug.apk`](https://github.com/hyxsbcjg/NUEDC-2026-H-Ball-Control/releases/download/android-v1.0.2/K230Camera-v1.0.2-universal-debug.apk)：包含 `arm64-v8a`、`armeabi-v7a`、`x86`、`x86_64` 四种 ABI
-- [`SHA256SUMS.txt`](https://github.com/hyxsbcjg/NUEDC-2026-H-Ball-Control/releases/download/android-v1.0.2/SHA256SUMS.txt)：下载后校验 APK 完整性
+- [`K230Camera-v1.0.2-arm64-v8a-debug.apk`](https://github.com/hyxsbcjg/NUEDC-2026-H-Rolling-Ball-Control-System/releases/download/android-v1.0.2/K230Camera-v1.0.2-arm64-v8a-debug.apk)：推荐多数现代 Android 手机
+- [`K230Camera-v1.0.2-universal-debug.apk`](https://github.com/hyxsbcjg/NUEDC-2026-H-Rolling-Ball-Control-System/releases/download/android-v1.0.2/K230Camera-v1.0.2-universal-debug.apk)：包含 `arm64-v8a`、`armeabi-v7a`、`x86`、`x86_64` 四种 ABI
+- [`SHA256SUMS.txt`](https://github.com/hyxsbcjg/NUEDC-2026-H-Rolling-Ball-Control-System/releases/download/android-v1.0.2/SHA256SUMS.txt)：下载后校验 APK 完整性
 
 Android 10 或更高版本可在系统设置中允许浏览器或文件管理器“安装未知应用”，然后打开 APK。也可启用 USB 调试后执行：
 

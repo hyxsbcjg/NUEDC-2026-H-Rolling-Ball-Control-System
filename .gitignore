@@ -52,6 +52,19 @@ externalNativeBuild/
 *.keystore
 *.jks
 
+# 硬件设计与制板输出
+*.kicad_pro
+*.kicad_sch
+*.kicad_pcb
+*.[Ss]ch[Dd]oc
+*.[Pp]cb[Dd]oc
+*.[Pp]rj[Pp][Cc][Bb]
+*.epro
+*.epro2
+*.gbr
+*.drl
+Gerber/
+
 # Keep the shared ADS project metadata and prebuilt device configuration:
 #   tc264/.project
 #   tc264/.cproject
